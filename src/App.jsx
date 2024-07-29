@@ -1,35 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import DataFetching from "./components/use-hook-data-fetching/DataFetching";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [example, setExample] = useState("");
+
+  const handleChange = (e) => {
+    setExample(e.target.value);
+  };
+
+  // choose which example to render
+  let content;
+
+  if (example === "example-1") {
+    content = <DataFetching />;
+  }
+  // if (example === "example-2") {
+  //   content = <Example2 />;
+  // }
+  // if (example === "example-3") {
+  //   content = <Example3 />;
+  // }
+  // if (example === "action") {
+  //   content = <Example4 />;
+  // }
+  // if (example === "useFormStatus") {
+  //   content = <Example5 />;
+  // }
+  // if (example === "useFormState") {
+  //   content = (
+  //     <>
+  //       <Example6 itemID="1" title="Product 1" />
+  //       <Example6 itemID="2" title="Product 2" />
+  //     </>
+  //   );
+  // }
+  // if (example === "useOptimistic") {
+  //   content = <Example7 />;
+  // }
+  // if (example === "automemo") {
+  //   content = <Counter />;
+  // }
+  // if (example === "forwardRef") {
+  //   content = <InputContainer />;
+  // }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="p-12">
+      <h1 className="font-bold text-3xl">What&apos;s coming in React 19</h1>
+
+      <div className="mt-5">
+        I have created some examples to explore the new features. You can
+        explore the examples below:
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="mt-10">
+        <select onChange={handleChange}>
+          <option value="">Select example</option>
+          <option value="example-1">&quot;use&quot; Hook to fetch data</option>
+          <option value="example-2">&quot;use&quot; Hook with promise</option>
+          <option value="example-3">&quot;use&quot; Hook with context</option>
+          <option value="action">&quot;Form Action&quot;</option>
+          <option value="useFormStatus">&quot;useFormStatus&quot;</option>
+          <option value="useFormState">&quot;useFormState&quot;</option>
+          <option value="useOptimistic">&quot;useOptimistic&quot;</option>
+          <option value="automemo">&quot;Auto Memoization&quot;</option>
+          <option value="forwardRef">&quot;forwardRef&quot;</option>
+        </select>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      <div className="mt-10">{content}</div>
+    </div>
+  );
 }
 
-export default App
+export default App;
