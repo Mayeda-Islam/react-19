@@ -3,6 +3,7 @@ import "./App.css";
 import DataFetching from "./components/use-hook-data-fetching/DataFetching";
 import PromiseResolve from "./components/use-hook-data-fetching/use-hook-promise-resolve/PromiseResolve";
 import Theme from "./components/use-context/ThemeCard";
+import Posts from "./components/acction/Starter";
 
 function App() {
   const [example, setExample] = useState("");
@@ -23,9 +24,9 @@ function App() {
   if (example === "example-3") {
     content = <Theme />;
   }
-  // if (example === "action") {
-  //   content = <Example4 />;
-  // }
+  if (example === "action") {
+    content = <Posts />;
+  }
   // if (example === "useFormStatus") {
   //   content = <Example5 />;
   // }
