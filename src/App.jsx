@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import DataFetching from "./components/use-hook-data-fetching/DataFetching";
 import PromiseResolve from "./components/use-hook-data-fetching/use-hook-promise-resolve/PromiseResolve";
+import Theme from "./components/use-context/ThemeCard";
 
 function App() {
   const [example, setExample] = useState("");
@@ -19,9 +20,9 @@ function App() {
   if (example === "example-2") {
     content = <PromiseResolve />;
   }
-  // if (example === "example-3") {
-  //   content = <Example3 />;
-  // }
+  if (example === "example-3") {
+    content = <Theme />;
+  }
   // if (example === "action") {
   //   content = <Example4 />;
   // }
